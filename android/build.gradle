@@ -1,0 +1,45 @@
+buildscript {
+    ext {
+        minSdkVersion = 24
+        compileSdkVersion = 34 
+        targetSdkVersion = 34
+        
+        ndkVersion = "26.1.10909125" 
+        kotlinVersion = "1.9.24"
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Stable AGP for Gradle 8.x
+        classpath("com.android.tools.build:gradle:8.5.2")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+    }
+}
+
+/**
+ * Dependency Resolution Management is the modern way to handle JitPack
+ * but for simplicity in migration, we keep allprojects here.
+ */
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://www.jitpack.io' }
+    }
+}
+
+subprojects {
+    configurations.all {
+        resolutionStrategy {
+            // Force androidx.core to 1.13.1 to maintain compatibility with API 34/AGP 8.5.2
+            // Some newer react-native libraries pull in 1.16+ which requires API 35
+            force 'androidx.core:core:1.13.1'
+            force 'androidx.core:core-ktx:1.13.1'
+        }
+    }
+}
+
+apply plugin: "com.facebook.react.rootproject"

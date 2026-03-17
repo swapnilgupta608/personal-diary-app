@@ -1,0 +1,46 @@
+# General
+node_modules/
+.DS_Store
+.bundle/
+vendor/bundle/
+*.log
+*.swp
+*.swo
+.watchmanconfig
+
+# Project internal meta-files
+ai-chat.md
+tasks.md
+features.md
+design_document.md
+ai-exclude
+
+# Android
+.gradle
+build/
+local.properties
+*.keystore
+!android/app/debug.keystore
+android/app/build
+android/.cxx
+
+# iOS
+ios/Pods/
+ios/build/
+*.xcworkspace
+ios/*.xcworkspace
+ios/DerivedData/
+ios/*.lock
+ios/.xcode.env.local
+
+# Testing
+coverage/
+
+# Environment
+.env
+.env.local
+
+# Tools
+.vscode/
+.idea/
+.idx/integrations.json
