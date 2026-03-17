@@ -14,6 +14,7 @@ tasks.md
 features.md
 design_document.md
 ai-exclude
+.kiro/
 
 # Android
 .gradle
@@ -22,7 +23,11 @@ local.properties
 *.keystore
 !android/app/debug.keystore
 android/app/build
-android/.cxx
+# Ignore all C++ build directories
+**/.cxx/
+# Ignore generated assets and bundled JS
+android/app/src/main/assets/
+android/app/src/main/res/drawable-*/
 
 # iOS
 ios/Pods/
@@ -36,9 +41,8 @@ ios/.xcode.env.local
 # Testing
 coverage/
 
-# Environment
-.env
-.env.local
+# Production/Distribution
+dist/
 
 # Tools
 .vscode/
